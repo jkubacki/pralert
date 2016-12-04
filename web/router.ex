@@ -11,6 +11,10 @@ defmodule Pralert.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    scope "/", Pralert do
+      get "/test", AlertController, :test
+      post "/alert", AlertController, :index
+    end
   end
 
   scope "/", Pralert do
